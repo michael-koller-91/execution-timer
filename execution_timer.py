@@ -85,11 +85,30 @@ class Timer:
     def timeit(
         self,
         data_generator,
-        compare_results=False,
-        compare_function=np.allclose,
-        repeat=3,
-        maxtime=0.1,
+        compare_results: bool = False,
+        compare_function: callable = np.allclose,
+        repeat: int = 3,
+        maxtime: float = 0.1,
     ):
+        """
+        Evaluate all ``self.functions`` on the data returned by the generator ``data_generator``.
+
+        Parameters
+        ----------
+        data_generator : generator
+            A generator which returns as a tuple all arguments that are required to evaluate the ``self.functions``.
+        compare_results : bool, optional
+            If True, the return values of self.functions[1:] are compared to the return value of self.functions[0]. The
+            function ``compare_results`` is used for the comparison. (The default is False.)
+        compare_function : callable, optional
+            This function is used to compare the return values of all ``self.functions``. (The default is np.allclose.)
+        repeat : `int`, optional
+            This argument is forwarded to the function timeit.repeat. (The default is 3.)
+        maxtime : `float`, optional
+            Every function in ``self.functions`` is called so often that the cumulative execution time starts to
+            surpass ``maxtime``. The number of calls which are necessary for this determines how often the function is
+            called during the actual timing. (The default is 0.1.)
+        """
         tic = time.time()
 
         self.timeit_results = {
