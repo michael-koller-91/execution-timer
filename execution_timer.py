@@ -148,10 +148,10 @@ class Timer:
             d_min[df0["function"].to_list()[arg_min_min]] += 1
             d_mean[df0["function"].to_list()[arg_min_mean]] += 1
 
-        print("min(secs)")
+        print("How often the functions achieved the minimum min(secs):")
         for k, v in d_min.items():
             print(f"{k}: {v}")
 
-        print("mean(secs)")
+        print("How often the functions achieved the minimum mean(secs):")
         for k, v in d_mean.items():
             print(f"{k}: {v}")
