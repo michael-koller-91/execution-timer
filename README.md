@@ -4,7 +4,7 @@ A wrapper around the `timeit` module to compare function execution times.
 
 ## Example
 
-The example demonstrates how `execution_timer.py` can be used.
+The example ([example.py](example.py)) demonstrates how `execution_timer.py` can be used.
 It compares the execution time of `np.sum` and of the function `sum` given by
 ```python
 def sum(a):
